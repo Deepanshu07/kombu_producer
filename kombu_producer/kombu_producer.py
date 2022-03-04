@@ -1,10 +1,9 @@
 from kombu import Connection, Exchange, Producer
 
-from kombu_producer.utils import Singleton
+from kombu_producer.utils import ParametricSingleton
 
 
-class KombuProducer(metaclass=Singleton):
-
+class KombuProducer(metaclass=ParametricSingleton):
     def __init__(self, exchange_name, exchange_type, routing_key, broker_url):
         self.exchange_name = exchange_name
         self.exchange_type = exchange_type
@@ -22,5 +21,7 @@ class KombuProducer(metaclass=Singleton):
         )
 
     def publish_payload(self, payload):
-        publish = self.__conn.ensure(self._producer, self._producer.publish, max_retries=3)
+        publish = self.__conn.ensure(
+            self._producer, self._producer.publish, max_retries=3
+        )
         publish(payload)

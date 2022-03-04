@@ -15,7 +15,7 @@ setup(
   author='Deepanshu Gupta',
   author_email='deepanshu71095@gmail.com',
   url='https://github.com/Deepanshu07/kombu_producer',
-  download_url='https://github.com/Deepanshu07/moengage/archive/refs/tags/v0.3.4.tar.gz',
+  download_url='https://github.com/Deepanshu07/kombu_producer/archive/refs/tags/v0.1.0.tar.gz',
   keywords=['Kombu', 'Kombu-producer'],
   install_requires=[
           'amqp',
